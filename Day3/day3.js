@@ -23,7 +23,6 @@ const transformIntoNumber = (letter, alphabet) => {
     }
 
 let sumOfSharedItems = 0;
-
 inputArray.forEach(function(row) {
     let sharedItemAsLetter = findSharedItem(row);    
     let sharedItemAsNumber = transformIntoNumber(sharedItemAsLetter, alphabet);    
@@ -42,28 +41,29 @@ const getGroups = (array) => {
     }
     return groupsArray;
 }
-getGroups(inputArray);
-console.log(groupsArray);
 
 let arrayOfBadges = [];
 const getArrayOfBadges = (group) => {
     for(let p = 0; p < group[0].length; p++) {
-        let possibleBadge = group[0][p];        
-        (group[1].includes(possibleBadge) && group[2].includes(possibleBadge)) ? arrayOfBadges.push(possibleBadge) : false;
-    }
+        let possibleBadge = group[0][p];
+        if(group[1].includes(possibleBadge) && group[2].includes(possibleBadge)) {
+            arrayOfBadges.push(possibleBadge);
+            return; 
+        }     
+      }
     return arrayOfBadges;
 }
+
+
+getGroups(inputArray);
 
 groupsArray.forEach(function(group) {
     getArrayOfBadges(group);
 });
-console.log(arrayOfBadges);
 
 const arrayOfNumbers = arrayOfBadges.map(badge => {
     return transformIntoNumber(badge, alphabet);
 })
-
-console.log(arrayOfNumbers);
 
 const badgesSum =  arrayOfNumbers.reduce((acc, val) => acc + val);
 console.log(badgesSum);
