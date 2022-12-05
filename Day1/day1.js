@@ -19,16 +19,6 @@ console.log("1st highest value " + max);
 
 /*part two*/
 
-const indexOfMax = inputsSumArray.indexOf(max);
-inputsSumArray.splice(indexOfMax, 1);
-
-const max2 = Math.max(...inputsSumArray);
-console.log("2nd highest value " + max2);
-
-const indexOfMax2 = inputsSumArray.indexOf(max2);
-inputsSumArray.splice(indexOfMax2, 1);
-
-const max3 = Math.max(...inputsSumArray);
-console.log("3rd highest value " + max3);
-
-console.log(max+max2+max3);
+const arraySorted = inputsSumArray.sort((a,b) => b - a);
+const sumOfThreeHighest = arraySorted[0] + arraySorted[1] + arraySorted[2];
+console.log(sumOfThreeHighest);
