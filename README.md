@@ -5,3 +5,5 @@ Day1: sort() + compare function, how it works under the hood
 Day2: switch - syntax variants: break vs return instead of break
 
 Day3: include()
+
+Day4: split() according to regExp
